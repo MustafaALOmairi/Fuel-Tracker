@@ -1,0 +1,15 @@
+{
+  "name": "fuel-tracker",
+  "version": "1.0.0",
+  "description": "Fuel Tracker System - Bilingual (AR/EN)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Mustafa Al-Omairi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "fs-extra": "^11.2.0"
+  }
+}

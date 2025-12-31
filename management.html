@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fuel Tracker | Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Fuel Tracker</h2>
+
+    <nav>
+      <a href="index.html">⛽ Fuel Entry</a>
+      <a class="active" href="management.html">🛠 Management</a>
+      <a href="reports.html">📊 Reports</a>
+    </nav>
+
+    <button id="langBtn">AR</button>
+  </aside>
+
+  <!-- Content -->
+  <main class="content">
+    <h1 data-en="Management" data-ar="الإدارة">Management</h1>
+
+    <div class="card">
+      <h3 data-en="Add Equipment" data-ar="إضافة معدة">Add Equipment</h3>
+
+      <label data-en="Name" data-ar="الاسم"></label>
+      <input id="eqName">
+
+      <label data-en="Type" data-ar="النوع"></label>
+      <input id="eqType">
+
+      <label data-en="Number" data-ar="الرقم"></label>
+      <input id="eqNumber">
+
+      <button onclick="addEquipment()" data-en="Add Equipment" data-ar="إضافة المعدة"></button>
+    </div>
+
+    <br>
+
+    <div class="card">
+      <h3 data-en="Add Operator" data-ar="إضافة مشغل">Add Operator</h3>
+
+      <label data-en="Operator Name" data-ar="اسم المشغل"></label>
+      <input id="opName">
+
+      <button onclick="addOperator()" data-en="Add Operator" data-ar="إضافة المشغل"></button>
+    </div>
+
+    <pre id="result"></pre>
+  </main>
+</div>
+
+<script src="js/management.js"></script>
+</body>
+</html>

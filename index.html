@@ -1,38 +1,51 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Fuel Tracker</title>
+  <meta charset="UTF-8" />
+  <title>Fuel Tracker | Fuel Entry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-<h2>تسجيل تعبئة وقود</h2>
+<div class="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>Fuel Tracker</h2>
 
-<input id="eq" placeholder="كود المعدة" value="EXC-01"><br><br>
-<input id="liters" type="number" placeholder="الكمية"><br><br>
-<select id="shift">
-  <option>Day</option>
-  <option>Night</option>
-</select><br><br>
-<button onclick="save()">حفظ</button>
+    <nav>
+      <a class="active" href="index.html">⛽ Fuel Entry</a>
+      <a href="management.html">🛠 Management</a>
+      <a href="reports.html">📊 Reports</a>
+    </nav>
 
-<pre id="out"></pre>
+    <button id="langBtn">AR</button>
+  </aside>
 
-<script>
-async function save(){
-  const res = await fetch("add_fuel.php",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({
-      eq_code: eq.value,
-      liters: liters.value,
-      shift: shift.value,
-      log_date: new Date().toISOString().slice(0,10)
-    })
-  });
-  out.textContent = await res.text();
-}
-</script>
+  <!-- Main -->
+  <main class="content">
+    <h1 data-en="Fuel Entry" data-ar="تسجيل تعبئة الوقود">Fuel Entry</h1>
 
+    <div class="card">
+      <label data-en="Equipment" data-ar="المعدة"></label>
+      <select id="equipment"></select>
+
+      <label data-en="Operator" data-ar="المشغل"></label>
+      <select id="operator"></select>
+
+      <label data-en="Fuel Quantity (Liters)" data-ar="كمية الوقود (لتر)"></label>
+      <input id="liters" type="number" placeholder="0">
+
+      <label data-en="Notes" data-ar="ملاحظات"></label>
+      <textarea id="notes"></textarea>
+
+      <button onclick="saveFuel()" data-en="Save Entry" data-ar="حفظ"></button>
+    </div>
+
+    <pre id="result"></pre>
+  </main>
+</div>
+
+<script src="js/fuel.js"></script>
 </body>
 </html>
