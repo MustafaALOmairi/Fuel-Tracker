@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Fuel Tracker</title>
+</head>
+<body>
+
+<h2>تسجيل تعبئة وقود</h2>
+
+<input id="eq" placeholder="كود المعدة" value="EXC-01"><br><br>
+<input id="liters" type="number" placeholder="الكمية"><br><br>
+<select id="shift">
+  <option>Day</option>
+  <option>Night</option>
+</select><br><br>
+<button onclick="save()">حفظ</button>
+
+<pre id="out"></pre>
+
+<script>
+async function save(){
+  const res = await fetch("add_fuel.php",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      eq_code: eq.value,
+      liters: liters.value,
+      shift: shift.value,
+      log_date: new Date().toISOString().slice(0,10)
+    })
+  });
+  out.textContent = await res.text();
+}
+</script>
+
+</body>
+</html>
